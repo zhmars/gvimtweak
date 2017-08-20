@@ -55,3 +55,4 @@ nnoremap<silent> <F11> :GvimTweakToggleFullScreen<CR>
 * [vim-scripts/VimTweak](https://github.com/vim-scripts/VimTweak)
 * [vim-scripts/gvimfullscreen_win32](https://github.com/vim-scripts/gvimfullscreen_win32)
 * [derekmcloughlin/gvimfullscreen_win32](https://github.com/derekmcloughlin/gvimfullscreen_win32)
+* [asins/gvimfullscreen_win32](https://github.com/asins/gvimfullscreen_win32)
