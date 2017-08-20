@@ -16,10 +16,14 @@ Supported platforms:
 
 ### Vim-Plug
 
-If you use [vim-plug](https://github.com/junegunn/vim-plug), you can update and build gvimtweak automatically.
+If you use [vim-plug](https://github.com/junegunn/vim-plug), you can update automatically.
 
 ```vim
 Plug 'zhmars/gvimtweak'
+
+" if has('win32')
+"   Plug 'zhmars/gvimtweak'
+" endif
 ```
 
 ## Building(Optional)
@@ -32,22 +36,26 @@ Plug 'zhmars/gvimtweak'
 
 ## Configuration Examples
 ```vim
-" alpha value (180 ~ 255) default: 245"
-let g:gvimtweak#window_alpha                 = 240
-" enable alpha at startup"
-let g:gvimtweak#enable_alpha_at_startup      = 1
-" enable topmost at startup"
-let g:gvimtweak#enable_topmost_at_startup    = 0
-" enable maximize at startup"
-let g:gvimtweak#enable_maximize_at_startup   = 0
-" enable fullscreen at startup"
-let g:gvimtweak#enable_fullscreen_at_startup = 0
+" alpha value (180 ~ 255) default: 245
+let g:gvimtweak#window_alpha=240
 
-nnoremap<silent> <A-k> :GvimTweakSetAlpha 10<CR>
-nnoremap<silent> <A-j> :GvimTweakSetAlpha -10<CR>
-nnoremap<silent> <A-t> :GvimTweakToggleTopMost<CR>
-nnoremap<silent> <A-m> :GvimTweakToggleMaximize<CR>
-nnoremap<silent> <A-f> :GvimTweakToggleFullScreen<CR>
+" enable alpha at startup
+let g:gvimtweak#enable_alpha_at_startup=1
+
+" enable topmost at startup
+let g:gvimtweak#enable_topmost_at_startup=0
+
+" enable maximize at startup
+let g:gvimtweak#enable_maximize_at_startup=0
+
+" enable fullscreen at startup
+let g:gvimtweak#enable_fullscreen_at_startup=0
+
+" nnoremap<silent> <A-k> :GvimTweakSetAlpha 10<CR>
+" nnoremap<silent> <A-j> :GvimTweakSetAlpha -10<CR>
+" nnoremap<silent> <A-t> :GvimTweakToggleTopMost<CR>
+" nnoremap<silent> <A-m> :GvimTweakToggleMaximize<CR>
+" nnoremap<silent> <A-f> :GvimTweakToggleFullScreen<CR>
 nnoremap<silent> <F11> :GvimTweakToggleFullScreen<CR>
 ```
 
