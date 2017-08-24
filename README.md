@@ -1,7 +1,15 @@
 # gvimtweak
 
-gvimtweak is a simple plugin to enable alpha, topmost, maximize, fullscreen for gvim.It is a fork of  [vim-scripts/VimTweak](https://github.com/vim-scripts/VimTweak) and [vim-scripts/gvimfullscreen_win32](https://github.com/vim-scripts/gvimfullscreen_win32).I just added a vim script for easy use
+gvimtweak is a simple plugin to bring alpha, topmost, maximize, fullscreen window support for gvim.
+It is a fork of [vim-scripts/VimTweak](https://github.com/vim-scripts/VimTweak) and [vim-scripts/gvimfullscreen_win32](https://github.com/vim-scripts/gvimfullscreen_win32).
+The reason I create this plugin is I want all features of them and without too much config.
 
+
+ name                | Alpha | Maximized | TopMost | FullScreen
+---------------------|-------|-----------|---------|---------
+VimTweak             | X     | X         | X       |
+gvimfullscreen_win32 |       |           |         | X
+gvimtweak            | X     | X         | X       | X
 
 Supported platforms:
 * Windows 32/64bit (Compiled by Visual Studio 2015)
@@ -19,11 +27,9 @@ Supported platforms:
 If you use [vim-plug](https://github.com/junegunn/vim-plug), you can update automatically.
 
 ```vim
-Plug 'zhmars/gvimtweak'
-
-" if has('win32')
-"   Plug 'zhmars/gvimtweak'
-" endif
+if has('win32')
+  Plug 'zhmars/gvimtweak'
+endif
 ```
 
 ## Building(Optional)
@@ -64,3 +70,4 @@ nnoremap<silent> <F11> :GvimTweakToggleFullScreen<CR>
 * [vim-scripts/gvimfullscreen_win32](https://github.com/vim-scripts/gvimfullscreen_win32)
 * [derekmcloughlin/gvimfullscreen_win32](https://github.com/derekmcloughlin/gvimfullscreen_win32)
 * [asins/gvimfullscreen_win32](https://github.com/asins/gvimfullscreen_win32)
+* [Shougo/vimproc.vim](https://github.com/Shougo/vimproc.vim)
