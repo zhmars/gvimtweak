@@ -1,11 +1,11 @@
 /*
-   cl /LD gvimtweak.c user32.lib
-   ------------------------------
-   :call libcallnr("gvimtweak.dll", "SetAlpha", 200)
-   :call libcallnr("gvimtweak.dll", "EnableMaximize", 1)
-   :call libcallnr("gvimtweak.dll", "EnableTopMost", 1)
-   :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
-   */
+  cl /LD gvimtweak.c user32.lib
+  ------------------------------
+  :call libcallnr("gvimtweak.dll", "SetAlpha", 200)
+  :call libcallnr("gvimtweak.dll", "EnableMaximize", 1)
+  :call libcallnr("gvimtweak.dll", "EnableTopMost", 1)
+  :call libcallnr("gvimtweak.dll", "ToggleFullScreen", 1)
+*/
 
 #include <windows.h>
 
@@ -58,12 +58,12 @@ LONG _declspec(dllexport) SetAlpha(LONG nTrans)
         if (nTrans == 255)
         {
           SetWindowLong(hTop, GWL_EXSTYLE,
-              GetWindowLong(hTop, GWL_EXSTYLE) & ~WS_EX_LAYERED); 
+              GetWindowLong(hTop, GWL_EXSTYLE) & ~WS_EX_LAYERED);
         }
         else
         {
           SetWindowLong(hTop, GWL_EXSTYLE,
-              GetWindowLong(hTop, GWL_EXSTYLE) | WS_EX_LAYERED); 
+              GetWindowLong(hTop, GWL_EXSTYLE) | WS_EX_LAYERED);
           pfnSetLayeredWindowAttributes(
               hTop, 0, (BYTE)nTrans, LWA_ALPHA);
         }
@@ -86,10 +86,10 @@ LONG _declspec(dllexport) EnableCaption(LONG bCaption)
   {
     if (bCaption == 0)
       SetWindowLong(hTop, GWL_STYLE,
-          GetWindowLong(hTop, GWL_STYLE) & ~WS_CAPTION); 
+          GetWindowLong(hTop, GWL_STYLE) & ~WS_CAPTION);
     else
       SetWindowLong(hTop, GWL_STYLE,
-          GetWindowLong(hTop, GWL_STYLE) | WS_CAPTION); 
+          GetWindowLong(hTop, GWL_STYLE) | WS_CAPTION);
   }
   return GetLastError();
 }

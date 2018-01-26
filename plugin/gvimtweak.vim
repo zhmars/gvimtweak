@@ -25,10 +25,16 @@ endif
 if !exists('g:gvimtweak#dll_path')
   let s:gvimtweak_dll_basename = has('win64') ?
         \ 'gvimtweak_win64.dll' : 'gvimtweak_win32.dll'
-  let g:gvimtweak#dll_path = expand('<sfile>:p:h:h') . '/lib/' . s:gvimtweak_dll_basename
+  let g:gvimtweak#dll_path = expand('<sfile>:p:h:h') . '\lib\' . s:gvimtweak_dll_basename
   unlet s:gvimtweak_dll_basename
 endif
 
+if !exists('g:gvimtweak#fullscreen_dll_path')
+  let s:gvimtweak_fullscreen_dll_basename = has('win64') ?
+        \ 'gvimfullscreen_win64.dll' : 'gvimfullscreen_win32.dll'
+  let g:gvimtweak#fullscreen_dll_path = expand('<sfile>:p:h:h') . '\lib\' . s:gvimtweak_fullscreen_dll_basename
+  unlet s:gvimtweak_fullscreen_dll_basename
+endif
 
 func! s:SetAlpha(alpha)
   if 180 <= a:alpha && a:alpha <= 255
@@ -56,8 +62,10 @@ func! s:ToggleMaximize()
   call libcall(g:gvimtweak#dll_path, 'EnableMaximize', g:gvimtweak#maximize)
 endf
 
+let g:gvimtweak#fullscreen = ''
 func! s:ToggleFullScreen()
-  call libcall(g:gvimtweak#dll_path, 'ToggleFullScreen', 1)
+  " call libcall(g:gvimtweak#dll_path, 'ToggleFullScreen', 1)
+  let g:gvimtweak#fullscreen = libcall(g:gvimtweak#fullscreen_dll_path, 'ToggleFullScreen', g:gvimtweak#fullscreen)
 endf
 
 command! -nargs=1 GvimTweakSetAlpha call s:SetAlpha(<args>)
