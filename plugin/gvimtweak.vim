@@ -52,13 +52,13 @@ endf
 
 let g:gvimtweak#topmost = g:gvimtweak#enable_topmost_at_startup ? 1 : 0
 func! s:ToggleTopMost()
-  let g:gvimtweak#topmost = g:gvimtweak#topmost ? 0 : 1
+  let g:gvimtweak#topmost = g:gvimtweak#topmost ? 1 : 0
   call libcall(g:gvimtweak#dll_path, 'EnableTopMost', g:gvimtweak#topmost)
 endf
 
 let g:gvimtweak#maximize = g:gvimtweak#enable_maximize_at_startup ? 1 : 0
 func! s:ToggleMaximize()
-  let g:gvimtweak#maximize = g:gvimtweak#maximize ? 0 : 1
+  let g:gvimtweak#maximize = g:gvimtweak#maximize ? 1 : 0
   call libcall(g:gvimtweak#dll_path, 'EnableMaximize', g:gvimtweak#maximize)
 endf
 
@@ -74,6 +74,7 @@ command! GvimTweakToggleMaximize call s:ToggleMaximize()
 command! GvimTweakToggleFullScreen call s:ToggleFullScreen()
 
 augroup load_gvimtweak
+  autocmd!
   if g:gvimtweak#enable_alpha_at_startup
     autocmd GUIEnter * call s:SetAlpha(0)
   endif
